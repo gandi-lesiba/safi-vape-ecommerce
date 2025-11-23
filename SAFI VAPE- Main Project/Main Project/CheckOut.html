@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Safi Vape</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0B0B0B',
+            secondary: '#C6A664',
+            accent: '#D9CEC1',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Add to your <head> or inside a <style> tag -->
+  <style>
+    .cart-panel {
+      display: none;
+    }
+    .cart-panel.open {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-primary text-white font-sans">
+<!-- Navigation -->
+<nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD  tank </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+      
+             <!-- Search Bar -->
+             <div class="hidden md:block relative">
+  <input id="search-bar" type="text" placeholder="Search products..."
+         class="bg-accent text-primary rounded-full px-4 py-2 focus:outline-none w-64">
+  <div id="search-results" class="absolute w-full bg-white text-primary rounded shadow mt-1 hidden"></div>
+</div>
+      <!-- Cart Icon -->
+                    <div class="relative ml-4">
+                        <button id="cart-toggle" class="text-white hover:text-secondary transition">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span id="cart-count" class="cart-count hidden">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-accent">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-secondary">Home</a>
+                <a href="#products" class="block px-3 py-2 text-white hover:text-secondary">Products</a>
+                <a href="#about" class="block px-3 py-2 text-white hover:text-secondary">About Us</a>
+                <a href="#why-us" class="block px-3 py-2 text-white hover:text-secondary">Why Choose Us</a>
+                <a href="#contact" class="block px-3 py-2 text-white hover:text-secondary">Contact</a>
+                <div class="px-3 py-2 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                    <span id="mobile-cart-count" class="ml-2 text-secondary">0</span>
+                </div>
+            </div>
+        </div>
+    
+</nav>
+
+
+  <div class="max-w-4xl mx-auto py-12 px-4 pt-24">
+    <h1 class="text-3xl font-serif text-secondary mb-8">Checkout</h1>
+
+    <!-- Cart Summary -->
+    <div class="bg-accent p-6 rounded-lg mb-10 text-primary">
+      <h2 class="text-xl font-bold mb-4">Your Order</h2>
+      <div id="checkout-cart-items" class="space-y-4">
+        <!-- Items inserted via JS -->
+      </div>
+      <div class="mt-6 border-t border-gray-300 pt-4 text-right">
+        <span class="text-lg font-bold">Subtotal: </span>
+        <span id="checkout-subtotal" class="text-lg font-bold text-secondary">$0.00</span>
+      </div>
+    </div>
+
+    <!-- Customer Info Form -->
+    <form id="customer-form" class="bg-accent p-6 rounded-lg text-primary space-y-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <input type="text" name="firstName" placeholder="First Name" class="w-full px-4 py-2 rounded border border-gray-400" required />
+    <input type="text" name="lastName" placeholder="Last Name" class="w-full px-4 py-2 rounded border border-gray-400" required />
+  </div>
+  <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 rounded border border-gray-400" required />
+  <input type="text" name="address" placeholder="Shipping Address" class="w-full px-4 py-2 rounded border border-gray-400" required />
+  <input type="text" name="city" placeholder="City" class="w-full px-4 py-2 rounded border border-gray-400" required />
+  <input type="text" name="postalCode" placeholder="Postal Code" class="w-full px-4 py-2 rounded border border-gray-400" required />
+
+  <button type="submit" class="w-full bg-secondary text-primary font-bold py-3 rounded hover:bg-yellow-500 transition">
+    Place Order
+  </button>
+</form>
+
+  </div>
+
+
+<br>
+
+   <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                          <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="NewArrivals.html" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="PodMod.html" class="opacity-90 hover:text-secondary transition">Pod Mod</a></li>
+                        <li><a href="TankMod.html" class="opacity-90 hover:text-secondary transition"> Tank Mod</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+
+
+  <script src="cart.js"></script>
+  <script>
+    // Populate cart info on checkout page
+    const checkoutItems = document.getElementById('checkout-cart-items');
+    const checkoutSubtotal = document.getElementById('checkout-subtotal');
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCheckoutCart() {
+      if (cartData.length === 0) {
+        checkoutItems.innerHTML = '<p class="text-gray-600">Your cart is empty.</p>';
+        checkoutSubtotal.textContent = '$0.00';
+        return;
+      }
+
+      let subtotal = 0;
+      checkoutItems.innerHTML = '';
+
+      cartData.forEach((item, idx) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        checkoutItems.innerHTML += `
+          <div class="flex justify-between border-b border-gray-300 pb-2 items-center">
+            <div>
+              <h3 class="font-bold">${item.name}</h3>
+              <p class="text-sm">$${item.price.toFixed(2)} × ${item.quantity}</p>
+            </div>
+            <div class="flex items-center">
+              <span class="font-bold mr-2">$${itemTotal.toFixed(2)}</span>
+              <button class="remove-checkout-item text-gray-400 hover:text-secondary" data-index="${idx}" title="Remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+
+      // Add event listeners for remove buttons
+      document.querySelectorAll('.remove-checkout-item').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const idx = parseInt(this.getAttribute('data-index'));
+          cartData.splice(idx, 1);
+          localStorage.setItem('cart', JSON.stringify(cartData));
+          renderCheckoutCart();
+          // Also update the cart panel if present
+          if (typeof updateCart === 'function') updateCart();
+        });
+      });
+    }
+
+    renderCheckoutCart();
+  </script>
+
+
+<div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+        <button id="cart-close" class="text-white hover:text-secondary">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div id="cart-items" class="space-y-4">
+        <p class="text-gray-400">Your cart is empty</p>
+    </div>
+    <div class="mt-8 border-t border-secondary/20 pt-4">
+        <div class="flex justify-between mb-2">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal" class="font-bold">$0.00</span>
+        </div>
+        <button onclick="window.location.href='CheckOut.html';" class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+            Checkout
+        </button>
+    </div>
+</div>
+
+
+<!-- Order Confirmation Modal -->
+<div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white text-primary rounded-lg p-8 max-w-sm w-full text-center shadow-lg">
+    <h2 class="text-2xl font-bold mb-4 text-secondary">Order Placed!</h2>
+    <p class="mb-6">Thank you for choosing Safi. Your order has been placed.</p>
+    <button id="close-modal" class="bg-secondary text-primary px-6 py-2 rounded font-bold hover:bg-yellow-500 transition">Close</button>
+  </div>
+</div>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzy_Gjm8DBGm2YAlqze3pdTK-7BlILUPYR55ZvTs9chxljlvF_FrbCV6n_dU_1vRb6C/exec';
+
+  document.getElementById('customer-form').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData).toString();
+
+    fetch(scriptURL + "?" + params, { method: 'POST' })
+      .then(() => {
+        form.reset(); // Clear the form
+        document.getElementById('order-modal').classList.remove('hidden');
+      })
+      .catch(error => alert("Error: " + error));
+  });
+
+  document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('order-modal').classList.add('hidden');
+  });
+</script>
+
+
+<!--Search functionality-->
+<script>
+  const products = [
+    { name: "LUXE Q2", url: "LuxeQ2.html" },
+    { name: "Luxe X2", url: "LuxeX2.html" },
+    { name: "Vaporesso", url: "Vaporesso.html" },
+    { name: "Tank Mod Titan", url: "TankModTitan.html" },
+    // Add more as needed
+  ];
+
+  const searchInput = document.getElementById("search-bar");
+  const resultsBox = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    resultsBox.innerHTML = "";
+    if (!query) {
+      resultsBox.classList.add("hidden");
+      return;
+    }
+
+    const matched = products.filter(p => p.name.toLowerCase().includes(query));
+    if (matched.length === 0) {
+      resultsBox.innerHTML = '<div class="p-2 text-sm">No results found</div>';
+    } else {
+      matched.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        item.textContent = p.name;
+        item.onclick = () => {
+          window.location.href = p.url;
+        };
+        resultsBox.appendChild(item);
+      });
+    }
+    resultsBox.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+      resultsBox.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

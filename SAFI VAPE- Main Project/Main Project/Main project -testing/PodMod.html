@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pod Mods | Safi Vape</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B0B0B',
+                        secondary: '#C6A664',
+                        accent: '#D9CEC1',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary text-white">
+    <!-- Navigation -->
+    <!-- Same navigation from TankMod.html -->
+    <!-- Paste full nav code here -->
+<!-- Navigation -->
+    <nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD MOd </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+      
+      <!-- Cart Icon -->
+                    <div class="relative ml-4">
+                        <button id="cart-toggle" class="text-white hover:text-secondary transition">
+                            <i class="fas fa-shopping-cart text-xl text-white"></i>
+                            <span id="cart-count" class="cart-count hidden">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                        <button id="cart-toggle" class="text-white hover:text-secondary transition">
+                  <i class="fas fa-shopping-cart text-xl text-white"></i>
+                  <span id="cart-count" class="cart-count hidden text-secondary">0</span>
+                
+  </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-accent">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-secondary">Home</a>
+                <a href="allproducts.html" class="block px-3 py-2 text-white hover:text-secondary">Products</a>
+                <a href="ABOUT US.html" class="block px-3 py-2 text-white hover:text-secondary">About Us</a>
+                <a href="Why choose us.html" class="block px-3 py-2 text-white hover:text-secondary">Why Choose Us</a>
+                <a href="ContactUs.html" class="block px-3 py-2 text-white hover:text-secondary">Contact</a>
+                <div class="px-3 py-2 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                    <span id="mobile-cart-count" class="ml-2 text-secondary">0</span>
+                </div>
+            </div>
+        </div>
+    
+</nav>
+
+
+    
+    <!-- Pod Mod Section -->
+    <section class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-secondary">POD MOD DEVICES</h2>
+                <p class="max-w-2xl mx-auto opacity-90 text-black"><b>Compact, stylish, and perfect for on-the-go vaping.</b></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pod Mod 1 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="pod1.png" alt="Pod Mod Breeze" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">Pod Mod Breeze</h3>
+                    <p class="text-gray-400 mb-4">A sleek 40W pod system with refillable cartridges and USB-C fast charging.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$49.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="20" data-name="Pod Mod Breeze" data-price="49.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pod Mod 2 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="pod2.png" alt="Pod Mod Spark" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">Pod Mod Spark</h3>
+                    <p class="text-gray-400 mb-4">Lightweight with 30W output and leak-proof design, ideal for MTL vaping.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$39.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="21" data-name="Pod Mod Spark" data-price="39.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pod Mod 3 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="pod3.png" alt="Pod Mod Nova" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">Pod Mod Nova</h3>
+                    <p class="text-gray-400 mb-4">Nova combines style and power with 60W capability and smart wattage detection.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$59.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="22" data-name="Pod Mod Nova" data-price="59.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+ <div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+            <button id="cart-close" class="text-white hover:text-secondary">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="space-y-4">
+            <p class="text-gray-400">Your cart is empty</p>
+        </div>
+        <div class="mt-8 border-t border-secondary/20 pt-4">
+            <div class="flex justify-between mb-2">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal" class="font-bold">$0.00</span>
+            </div>
+            <button class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+                CHECKOUT
+            </button>
+        </div>
+    </div>
+   
+
+ <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                        <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition">Pods</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition"> Platforms</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="cart.js"></script>
+</body>
+</html>

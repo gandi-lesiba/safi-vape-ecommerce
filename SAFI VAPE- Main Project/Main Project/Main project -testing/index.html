@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saffi | Premium Vaping Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B0B0B',
+                        secondary: '#C6A664',
+                        accent: '#D9CEC1',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+      .hero {
+          background-size: cover;
+          background-position: center;
+          min-height: 90vh;
+          position: relative;
+      }
+      
+      .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; /* <-- Add this line */
+}
+
+      .hero:hover::before {
+          opacity: 0;
+      }
+
+
+
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(255, 215, 0, 0.25);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #FFD700;
+            color: #000;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .cart-panel {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .cart-panel.open {
+            transform: translateX(0);
+        }
+
+    .animate-fly-in {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fly-in 1s forwards;
+    }
+    
+    @keyframes fly-in {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 160px;
+  z-index: 1000;
+}
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #333;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#searchBar {
+      padding: 10px 15px;
+      width: 300px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .product {
+      width: 180px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .product h4 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+    </style>
+</head>
+<h2>Search Products</h2>
+  <input type="text" id="searchBar" placeholder="Search for products..." />
+
+  <div class="product-grid" id="productGrid">
+    <!-- 🧩 Your product cards go here -->
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Apple" alt="Apple">
+      <h4>Apple</h4>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Banana" alt="Banana">
+      <h4>Banana</h4>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Strawberry" alt="Strawberry">
+      <h4>Strawberry</h4>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Grapes" alt="Grapes">
+      <h4>Grapes</h4>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Mango" alt="Mango">
+      <h4>Mango</h4>
+    </div>
+    <!-- Add more products here -->
+  </div>
+<body class="bg-primary text-white">
+    <!-- Navigation -->
+    <nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD  tank </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+      
+      <!-- Cart Icon -->
+                    <div class="relative ml-4">
+                        <button id="cart-toggle" class="text-white hover:text-secondary transition">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span id="cart-count" class="cart-count hidden">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-accent">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-secondary">Home</a>
+                <a href="#products" class="block px-3 py-2 text-white hover:text-secondary">Products</a>
+                <a href="#about" class="block px-3 py-2 text-white hover:text-secondary">About Us</a>
+                <a href="#why-us" class="block px-3 py-2 text-white hover:text-secondary">Why Choose Us</a>
+                <a href="#contact" class="block px-3 py-2 text-white hover:text-secondary">Contact</a>
+                <div class="px-3 py-2 flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                    <span id="mobile-cart-count" class="ml-2 text-secondary">0</span>
+                </div>
+            </div>
+        </div>
+    
+</nav>
+
+    <!-- Cart Panel -->
+    <div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+            <button id="cart-close" class="text-white hover:text-secondary">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="space-y-4">
+            <!-- Cart items will be added here dynamically -->
+            <p class="text-gray-400">Your cart is empty</p>
+        </div>
+        <div class="mt-8 border-t border-secondary/20 pt-4">
+            <div class="flex justify-between mb-2">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal" class="font-bold">$0.00</span>
+            </div>
+            <button class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+                CHECKOUT
+            </button>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center pt-16">
+        <div class="text-center px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 text-secondary">ELEVATE YOUR VAPE EXPERIENCE</h1>
+            <p class="text-xl mb-8 opacity-90">Discover the pinnacle of vaping technology with our premium collection of devices and e-liquids.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="allproducts.html" class="bg-secondary text-primary px-8 py-3 font-bold hover:bg-yellow-500 transition">SHOP NOW</a>
+                <a href="Why choose us.html" class="border border-secondary text-secondary px-8 py-3 font-bold hover:bg-secondary hover:text-primary transition">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section id="products" class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-secondary">OUR PREMIUM COLLECTION</h2>
+                <p class="max-w-2xl mx-auto opacity-90" style="color: #1f1f1f;"><B> unmatched quality with our carefully curated selection of premium vaping products.</B></p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="Luxe Q2.png" alt="Luxe Pro Vape" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">LUXE PRO</h3>
+                    <p class="text-gray-400 mb-4">The LUXE Q2 is a new MTL pod system in LUXE Q family. With 2A rapid charging, it reaches 1000mAh battery in 30 minutes and lasts for 48 hours. It also features deluxe leather and adjustable airflow for premium vaping experience. Compatible with all LUXE Q pods, LUXE Q2 caters to nic salt and freebase.
+
+</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$89.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="1" data-name="LUXE PRO" data-price="89.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="Luxe X2.png" alt="Gold Edition Vape" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">Luxe X2</h3>
+                    <p class="text-gray-400 mb-4">Experience premium MTL vaping with the Luxe X2. Its 2000mAh battery provides up to 4 days of use, while COREX 2.0 technology enhances flavor and extends pod life. The 5ml 0.6Ω/0.8Ω pods, adjustable airflow, and compatibility with Luxe X pods ensure a customizable experience.
+</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$149.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="2" data-name="Luxe X2" data-price="149.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-primary p-6 rounded-lg transition duration-300 hover:shadow-lg">
+                    <div class="bg-accent rounded-lg p-4 mb-4">
+                        <img src="Vaporesso.png" alt="Signature E-Liquid" class="w-full h-64 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #D9CEC1;">Vaporesso</h3>
+                    <p class="text-gray-400 mb-4">A revolutionary new vaping solution that addresses the long-standing pain points of current products while delivering an intuitive design that meets the smoking usage habits.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-bold text-xl">$24.99</span>
+                        <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition" data-id="3" data-name="Vaporesso" data-price="24.99">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="allproducts.html" class="border border-secondary text-secondary px-8 py-3 font-bold hover:bg-secondary hover:text-primary transition">VIEW ALL PRODUCTS</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="Safi2.PNG" alt="About Luxe Vape" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-serif font-bold mb-6 text-secondary">OUR STORY</h2>
+                    <p class="mb-4 opacity-90">Our journey began not in a boardroom, but during a late-night conversation among friends—frustrated by the state of the vaping industry. The market was flooded with cheap devices, synthetic flavors, and inconsistent performance. What was meant to be a better alternative felt rushed, disposable, and uninspired.</p>
+                    <p class="mb-6 opacity-90">Driven by the belief that people deserved more, the founders of Safi Vape set out to redefine the vaping experience. Their vision was clear: create a product that feels elevated, not compromised. Every detail—from the first inhale to the final design—was to be intentional, crafted, and satisfying. With a focus on premium build quality and refined design, they aimed to deliver the same pride and pleasure found in high-end lifestyle products.</p>
+                    <p class="mb-6 opacity-90">Today, Safi Vape is recognized globally for its unwavering commitment to quality, innovation, and customer satisfaction. Each product undergoes rigorous testing to ensure it meets our highest standards—because we believe excellence should be expected, not exceptional.</p>
+                    <div class="flex space-x-4">
+                        <div class="text-center p-4 border border-secondary rounded-lg">
+                            <span class="text-secondary text-3xl font-bold">5+</span>
+                            <p class="text-sm">Years in Business</p>
+                        </div>
+                        <div class="text-center p-4 border border-secondary rounded-lg">
+                            <span class="text-secondary text-3xl font-bold">50K+</span>
+                            <p class="text-sm">Happy Customers</p>
+                        </div>
+                        <div class="text-center p-4 border border-secondary rounded-lg">
+                            <span class="text-secondary text-3xl font-bold">100+</span>
+                            <p class="text-sm">Awards Won</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-secondary">WHY CHOOSE LUXE VAPE</h2>
+                <p class="max-w-2xl mx-auto opacity-90" style="color:#0b0b0b; "><b>Discover what sets us apart in the world of premium vaping </b></p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Premium Materials</h3>
+                    <p class="opacity-90">We use only the highest quality materials in our products, ensuring durability and a luxurious feel.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Innovative Technology</h3>
+                    <p class="opacity-90">Our R&D team constantly pushes boundaries to deliver cutting-edge vaping technology.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pure Ingredients</h3>
+                    <p class="opacity-90">Our e-liquids contain only pharmaceutical-grade ingredients for the cleanest vaping experience.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Award-Winning</h3>
+                    <p class="opacity-90">Recognized by industry experts for our exceptional product quality and design.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
+                    <p class="opacity-90">Our dedicated customer service team is always ready to assist you with any questions.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-primary rounded-lg">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Lifetime Warranty</h3>
+                    <p class="opacity-90">We stand behind our products with an industry-leading lifetime warranty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-secondary">WHAT OUR CUSTOMERS SAY</h2>
+                <p class="max-w-2xl mx-auto opacity-90">Hear from vapers who have experienced the Luxe difference</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-accent p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic opacity-90" style="color: #0b0b0b;">"The  Safi Luxe Pro completely transformed my vaping experience. The build quality is unmatched and the flavor production is incredible."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-secondary mr-3"></div>
+                        <div>
+                            <p class="font-bold" style="color: #0b0b0b;">Michael T.</p>
+                            <p class="text-sm opacity-70" style="color: #0b0b0b;">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-accent p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic opacity-90"style="color: #0b0b0b;">"I've tried many premium brands, but Safi Vape stands above them all. Their customer service is as exceptional as their products."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-secondary mr-3"></div>
+                        <div>
+                            <p class="font-bold"style="color: #0b0b0b;">Sarah J.</p>
+                            <p class="text-sm opacity-70"style="color: #0b0b0b;">Vaping Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-accent p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="mb-4 italic opacity-90"style="color: #0b0b0b;">"The Luxe X2 is worth every penny. It's not just a vape, it's a statement piece that performs as good as it looks."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-secondary mr-3"></div>
+                        <div>
+                            <p class="font-bold"style="color: #0b0b0b;">David L.</p>
+                            <p class="text-sm opacity-70"style="color: #0b0b0b;">Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="py-16 bg-secondary text-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-serif font-bold mb-4">JOIN THE Safi COMMUNITY</h2>
+            <p class="mb-8 opacity-90">Subscribe to our newsletter for exclusive offers, new product launches, and vaping tips.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded text-primary">
+                <button type="submit" class="bg-primary text-secondary px-6 py-3 font-bold rounded hover:bg-black transition">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="contact-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white text-primary rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
+    <h3 class="text-2xl font-bold mb-4">Thank You!</h3>
+    <p class="mb-6">Thank you for contacting us! Our team will get back to you shortly.</p>
+    <button id="close-contact-popup" class="bg-secondary text-primary px-6 py-2 rounded font-bold hover:bg-yellow-500 transition">Close</button>
+  </div>
+</div>
+    
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-secondary" style="color: #0b0b0b;">GET IN TOUCH</h2>
+                <p class="max-w-2xl mx-auto opacity-90" style="color: #1f1f1f;"><b>Have questions? Our team is here to help you with any inquiries.</b></p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6" style="color: #0b0b0b;">CONTACT INFORMATION</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-secondary text-xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold" style="color:#0b0b0b;">Address</p>
+                                <p style="color: #1f1f1f;">18 Peter Mokaba Ridge ,Musgrave , Durban 4001 </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary text-xl mr-4 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold"  style="color:#0b0b0b;">Phone</p>
+                                <p style="color: #1f1f1f;">(+27) 85 771 1909</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary text-xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold"  style="color:#0b0b0b;">Email</p>
+                                <p style="color: #1f1f1f;">info@SafiVape.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary text-xl mr-4 mt-1">
+                                
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6" style="color:#0b0b0b;">SEND US A MESSAGE</h3>
+                    <form id="contact-form" class="space-y-4">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" class="w-full bg-primary border border-gray-700 rounded px-4 py-3">
+                            <input type="text" placeholder="Last Name" class="w-full bg-primary border border-gray-700 rounded px-4 py-3">
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full bg-primary border border-gray-700 rounded px-4 py-3">
+                        <input type="text" placeholder="Subject" class="w-full bg-primary border border-gray-700 rounded px-4 py-3">
+                        <textarea id="contactMessage" placeholder="Your Message" rows="5" class="w-full bg-primary border border-gray-700 rounded px-4 py-3"></textarea>
+
+                        <button type="submit" class="bg-secondary text-primary px-8 py-3 font-bold rounded hover:bg-yellow-500 transition">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                        <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition">Pods</a></li>
+                        <li><a href="#" class="opacity-90 hover:text-secondary transition"> Platforms</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+  const contactForm = document.getElementById('contact-form');
+  const contactPopup = document.getElementById('contact-popup');
+  const closeContactPopup = document.getElementById('close-contact-popup');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (message !== "") {
+      contactPopup.classList.remove('hidden');
+      contactForm.reset(); // Clear the form
+    } else {
+      alert("Please enter your message before submitting.");
+    }
+  });
+
+  closeContactPopup.addEventListener('click', () => {
+    contactPopup.classList.add('hidden');
+  });
+</script>
+
+ 
+	<script>
+  const images = [
+    'vape.jpg',
+    'hdvape.jpg',
+    'vape3.jpg'
+  ];
+
+  let currentIndex = 0;
+  const heroSection = document.querySelector('.hero');
+
+  function changeBackground() {
+    heroSection.style.backgroundImage = 
+      `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${images[currentIndex]}')`;
+    currentIndex = (currentIndex + 1) % images.length;
+  }
+
+  // Start now
+  changeBackground();
+  // Change every 5 seconds
+  setInterval(changeBackground, 5000);
+</script>
+
+    <!-- Newsletter Thank You Popup -->
+    <div id="newsletter-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white text-primary rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
+            <h3 class="text-2xl font-bold mb-4">Thank You!</h3>
+            <p class="mb-6">Welcome to the Safi community! Keep an eye on your inbox—we’ll be sending you the latest updates, exclusive offers, and more</p>
+            <button id="close-popup" class="bg-secondary text-primary px-6 py-2 rounded font-bold hover:bg-yellow-500 transition">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('form');
+        const newsletterPopup = document.getElementById('newsletter-popup');
+        const closePopupButton = document.getElementById('close-popup');
+        
+        newsletterForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+           
+            
+            newsletterPopup.classList.remove('hidden');
+            newsletterForm.reset();
+        });
+        
+        closePopupButton.addEventListener('click', () => {
+            newsletterPopup.classList.add('hidden');
+        });
+    </script>
+<script>
+    // Newsletter popup logic
+    document.querySelectorAll('form').forEach(form => {
+        if (form.querySelector('button[type="submit"]')?.textContent.trim().toUpperCase() === "SUBSCRIBE") {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('newsletter-popup').classList.remove('hidden');
+            });
+        }
+    });
+    document.getElementById('close-popup').addEventListener('click', function() {
+        document.getElementById('newsletter-popup').classList.add('hidden');
+    });
+	
+</script>
+<-- script for searchbar -->
+<script>
+    const searchBar = document.getElementById("searchBar");
+    const products = document.querySelectorAll(".product");
+
+    searchBar.addEventListener("input", () => {
+      const query = searchBar.value.toLowerCase();
+
+      products.forEach(product => {
+        const name = product.querySelector("h4").textContent.toLowerCase();
+        product.classList.toggle("hidden", !name.includes(query));
+      });
+    });
+  </script>
+<script src="cart.js"></script>
+</body>
+</html>

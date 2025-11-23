@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SAFI VAPE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                       primary: '#0B0B0B',
+                        secondary: '#C6A664',
+                        accent: '#D9CEC1',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+
+        @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-24px); }
+          100% { transform: translateY(0); }
+        }
+        .float-animation {
+          animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-primary text-white">
+  <!-- Navigation -->
+  <nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+              /* Add to your CSS */
+.cart-panel:not(.open) {
+    display: none;
+}
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD Mod </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+              
+             
+                      <!-- Search Bar -->
+             <div class="hidden md:block relative">
+  <input id="search-bar" type="text" placeholder="Search products..."
+         class="bg-accent text-primary rounded-full px-4 py-2 focus:outline-none w-64">
+  <div id="search-results" class="absolute w-full bg-white text-primary rounded shadow mt-1 hidden"></div>
+</div>
+
+<!-- Cart Icon -->
+             <div class="relative ml-4">
+  <button id="cart-toggle" class="text-white hover:text-secondary transition">
+      <i class="fas fa-shopping-cart text-xl"></i>
+      <span id="cart-count" class="cart-count hidden">0</span>
+  </button>
+            </div>
+</div>
+    </div>
+  
+
+</nav>
+    
+
+    <!-- Main About Us Section -->
+    <section id="about-us" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-lg overflow-hidden mb-10">
+         
+		  <img src="Safi3.PNG" alt="A wide, scenic landscape"
+            class="w-2/3 max-w-md h-auto rounded-lg shadow-md mb-8 mx-auto block float-animation">
+        </div>
+             
+        <div class="md:grid md:grid-cols-2 md:gap-10 items-center">
+            <div class="mb-8 md:mb-0 text-yellow-500">
+			
+             <div class="px-4 py-8 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-4 text-[#C6A664]">OUR COMPANY STORY</h2>
+    <p class="text-lg mb-6 text-[#D9CEC1]">
+        Welcome to SAFI VAPE, where luxury meets innovation in the world of vaping. We are passionate creators, dedicated to designing premium-quality vapes that redefine the experience of sophistication and performance.
+    </p>
+    <p class="text-[#D9CEC1] mb-4">
+        Our commitment to excellence is reflected in every detail—from meticulously crafted designs to cutting-edge technology that ensures a flawless draw, rich flavor, and unmatched durability. We believe vaping is more than a habit; it’s a lifestyle, an expression of individuality, and a pursuit of perfection.
+    </p>
+    <p class="text-[#D9CEC1] mb-4">
+        Using only the finest materials and advanced engineering, we elevate the standards of vaping, catering to those who demand the best. At SAFI VAPE, exclusivity isn’t just an option—it’s the expectation.
+    </p>
+    <p class="text-[#D9CEC1] mb-6">
+        Indulge in elegance. Experience precision. Welcome to a higher standard.
+    </p>
+    <a href="https://youtu.be/dQw4w9WgXcQ?si=Uup66uB_S7bmEcie" class="inline-block bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-3 px-6 rounded-full transition duration-300">
+        Learn More About Our Story
+    </a>
+</div>
+
+<br>
+<br>
+	<div>
+	 <h1 style="font-size:1.875rem; font-weight:700; color:#C6A664; margin-bottom:1.5rem; letter-spacing:0.05em;">Our Core Values</h1>
+
+  <h3 style="font-size:1.25rem; font-weight:600; color:#C6A664; margin-bottom:0.75rem;">Exceptional Craftsmanship</h3>
+  <ul style="list-style-type:square; color:#D9CEC1; margin-bottom:1.5rem;">
+    <li>Artisan-grade materials, precision engineering</li>
+    <li>Hand-finished details and rigorous quality control</li>
+  </ul>
+
+  <h3 style="font-size:1.25rem; font-weight:600; color:#C6A664; margin-bottom:0.75rem;">Sensory Excellence</h3>
+  <ul style="list-style-type:square; color:#D9CEC1; margin-bottom:1.5rem;">
+    <li>Gourmet, chef-inspired flavor profiles</li>
+    <li>Smooth, consistent vapor delivery</li>
+  </ul>
+
+  <h3 style="font-size:1.25rem; font-weight:600; color:#C6A664; margin-bottom:0.75rem;">Innovative Design</h3>
+  <ul style="list-style-type:square; color:#D9CEC1; margin-bottom:1.5rem;">
+    <li>Sleek, fashion-forward silhouettes</li>
+    <li>Cutting-edge technology seamlessly integrated</li>
+  </ul>
+
+  <h3 style="font-size:1.25rem; font-weight:600; color:#C6A664; margin-bottom:0.75rem;">Exclusive Community</h3>
+  <ul style="list-style-type:square; color:#D9CEC1; margin-bottom:1.5rem;">
+    <li>Limited editions, bespoke customization</li>
+    <li>Invitation-only events and loyalty experiences</li>
+  </ul>
+
+  <h3 style="font-size:1.25rem; font-weight:600; color:#C6A664; margin-bottom:0.75rem;">Responsible Luxury</h3>
+  <ul style="list-style-type:square; color:#D9CEC1; margin-bottom:1.5rem;">
+    <li>Ethical sourcing of ingredients</li>
+    <li>Eco-conscious packaging and recycling program</li>
+  </ul>
+
+  <div style="padding-left:1rem; padding-right:1rem; padding-top:2rem; padding-bottom:2rem; max-width:56rem; margin-left:auto; margin-right:auto;">
+    <h3 style="font-size:1.5rem; font-weight:700; color:#C6A664; margin-bottom:1rem; text-decoration:underline;">OUR PROMISE</h3>
+    <p style="font-size:1.125rem; color:#D9CEC1; font-weight:500;">
+      <strong>Safi Vape</strong> redefines every moment with sophistication. We are committed to delivering unparalleled quality, masterful design, and a premium experience that elevates vaping into a true expression of luxury.
+    </p>
+  </div>
+</div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                          <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="NewArrivals.html" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="PodMod.html" class="opacity-90 hover:text-secondary transition">Pod Mod</a></li>
+                        <li><a href="TankMod.html" class="opacity-90 hover:text-secondary transition"> Tank Mod</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Cart Panel -->
+    <div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+            <button id="cart-close" class="text-white hover:text-secondary">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="space-y-4">
+            <p class="text-gray-400">Your cart is empty</p>
+        </div>
+        <div class="mt-8 border-t border-secondary/20 pt-4">
+            <div class="flex justify-between mb-2">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal" class="font-bold">$0.00</span>
+            </div>
+            <button onclick="window.location.href='CheckOut.html';" class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+    Checkout
+</button>
+        </div>
+    </div>
+
+
+
+<!--Search functionality-->
+<script>
+  const products = [
+    { name: "LUXE Q2", url: "LuxeQ2.html" },
+    { name: "Luxe X2", url: "LuxeX2.html" },
+    { name: "Vaporesso", url: "Vaporesso.html" },
+    { name: "Tank Mod Titan", url: "TankModTitan.html" },
+    // Add more as needed
+  ];
+
+  const searchInput = document.getElementById("search-bar");
+  const resultsBox = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    resultsBox.innerHTML = "";
+    if (!query) {
+      resultsBox.classList.add("hidden");
+      return;
+    }
+
+    const matched = products.filter(p => p.name.toLowerCase().includes(query));
+    if (matched.length === 0) {
+      resultsBox.innerHTML = '<div class="p-2 text-sm">No results found</div>';
+    } else {
+      matched.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        item.textContent = p.name;
+        item.onclick = () => {
+          window.location.href = p.url;
+        };
+        resultsBox.appendChild(item);
+      });
+    }
+    resultsBox.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+      resultsBox.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+    <script src="cart.js"></script>
+</body>
+</html>

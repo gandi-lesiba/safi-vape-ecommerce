@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Policy | Saffi Vape</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0B0B0B',
+            secondary: '#C6A664',
+            accent: '#D9CEC1',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+    body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-primary text-white">
+ <!-- Navigation -->
+  <nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+              /* Add to your CSS */
+.cart-panel:not(.open) {
+    display: none;
+}
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD Mod </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+             
+             
+
+         <!-- Search Bar -->
+             <div class="hidden md:block relative">
+  <input id="search-bar" type="text" placeholder="Search products..."
+         class="bg-accent text-primary rounded-full px-4 py-2 focus:outline-none w-64">
+  <div id="search-results" class="absolute w-full bg-white text-primary rounded shadow mt-1 hidden"></div>
+</div>
+
+             <!--Cart icon-->
+             <div class="relative ml-4">
+  <button id="cart-toggle" class="text-white hover:text-secondary transition">
+      <i class="fas fa-shopping-cart text-xl"></i>
+      <span id="cart-count" class="cart-count hidden">0</span>
+  </button>
+            </div>
+</div>
+    </div>
+  
+
+</nav>
+    
+
+  <!-- Shipping Policy Content -->
+  <main class="pt-24 px-6 md:px-16 max-w-5xl mx-auto">
+    <h1 class="text-4xl font-serif font-bold text-secondary mb-6">Shipping Policy</h1>
+
+    <p class="mb-4 opacity-90">
+      At Saffi Vape, we strive to deliver your orders quickly, safely, and efficiently. This policy outlines our shipping practices, delivery timelines, and other key information.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">1. Processing Time</h2>
+    <p class="mb-4 opacity-90">
+      All orders are processed within 1–2 business days. Orders placed on weekends or holidays will be processed on the next business day.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">2. Shipping Methods & Timeframes</h2>
+    <p class="mb-4 opacity-90">
+      We offer the following shipping options:
+    </p>
+    <ul class="list-disc list-inside space-y-2 opacity-90">
+      <li><strong class="text-secondary">Standard Shipping (5–7 Business Days)</strong></li>
+      <li><strong class="text-secondary">Expedited Shipping (2–3 Business Days)</strong></li>
+      <li><strong class="text-secondary">Overnight Shipping (1 Business Day)</strong> – available in select regions</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">3. Shipping Costs</h2>
+    <p class="mb-4 opacity-90">
+      Shipping charges are calculated at checkout based on your selected method and location. Free shipping is available on domestic orders over $100.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">4. International Shipping</h2>
+    <p class="mb-4 opacity-90">
+      We currently offer international shipping to select countries. Delivery time and rates vary by location and may be subject to customs duties or taxes, which are the responsibility of the customer.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">5. Tracking Your Order</h2>
+    <p class="mb-4 opacity-90">
+      Once your order ships, you will receive a confirmation email with a tracking number. You can use this number to monitor your delivery status online.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">6. Delivery Issues</h2>
+    <p class="mb-4 opacity-90">
+      If your order is delayed, lost, or arrives damaged, please contact us at <a href="mailto:info@SafiVape.com" class="text-secondary underline">info@SafiVape.com</a>. We’ll work promptly to resolve the issue.
+    </p>
+
+    <h2 class="text-2xl font-bold text-secondary mt-8 mb-2">7. Restrictions</h2>
+    <p class="mb-4 opacity-90">
+      Due to local regulations, we may be unable to ship vaping products to certain regions. If your order cannot be fulfilled due to shipping restrictions, we will notify you and issue a full refund.
+    </p>
+
+    <p class="mt-8 opacity-70">Effective Date: May 25, 2025</p>
+    <p class="opacity-70">For further questions, reach out to our support team at <a href="mailto:info@SafiVape.com" class="text-secondary underline">info@SafiVape.com</a>.</p>
+  <br>
+  <br>
+  </main>
+
+ <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                           <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="NewArrivals.html" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="PodMod.html" class="opacity-90 hover:text-secondary transition">Pod Mod</a></li>
+                        <li><a href="TankMod.html" class="opacity-90 hover:text-secondary transition"> Tank Mod</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+ <!-- Cart Panel -->
+    <div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+            <button id="cart-close" class="text-white hover:text-secondary">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="space-y-4">
+            <p class="text-gray-400">Your cart is empty</p>
+        </div>
+        <div class="mt-8 border-t border-secondary/20 pt-4">
+            <div class="flex justify-between mb-2">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal" class="font-bold">$0.00</span>
+            </div>
+           <button onclick="window.location.href='CheckOut.html';" class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+    Checkout
+</button>
+        </div>
+    </div>
+
+
+<!--Search functionality-->
+<!--Search functionality-->
+<script>
+  const products = [
+    { name: "LUXE Q2", url: "LuxeQ2.html" },
+    { name: "Luxe X2", url: "LuxeX2.html" },
+    { name: "Vaporesso", url: "Vaporesso.html" },
+    { name: "Tank Mod Titan", url: "TankModTitan.html" },
+    // Add more as needed
+  ];
+
+  const searchInput = document.getElementById("search-bar");
+  const resultsBox = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    resultsBox.innerHTML = "";
+    if (!query) {
+      resultsBox.classList.add("hidden");
+      return;
+    }
+
+    const matched = products.filter(p => p.name.toLowerCase().includes(query));
+    if (matched.length === 0) {
+      resultsBox.innerHTML = '<div class="p-2 text-sm">No results found</div>';
+    } else {
+      matched.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        item.textContent = p.name;
+        item.onclick = () => {
+          window.location.href = p.url;
+        };
+        resultsBox.appendChild(item);
+      });
+    }
+    resultsBox.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+      resultsBox.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+    <script src="cart.js"></script>
+</body>
+</html>

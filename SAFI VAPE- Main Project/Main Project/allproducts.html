@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products | Saffi Vape</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0B0B0B',
+            secondary: '#C6A664',
+            accent: '#D9CEC1',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+    body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-primary text-white">
+  <!-- Navigation -->
+  <nav class="bg-primary border-b border-secondary/20 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <!-- Logo as Clickable Image -->
+        <a href="index.html">
+            <img src="Safi1.PNG" alt="SAFI VAPE Logo" class="h-16 max-w-2xl">
+        </a>
+
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="hover:text-secondary">Home</a>
+
+            <style>
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #1a1a1a;
+                min-width: 160px;
+                z-index: 1000;
+              }
+              .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+              .dropdown-content a:hover {
+                background-color: #333;
+              }
+              .dropdown:hover .dropdown-content {
+                display: block;
+              }
+              /* Add to your CSS */
+.cart-panel:not(.open) {
+    display: none;
+}
+            </style>
+
+            <div class="relative dropdown">
+              <a href="#products" class="text-white hover:text-secondary transition">Products ▾</a>
+              <div class="dropdown-content">
+                <a href="NewArrivals.html">New Arrival</a>
+                <a href="PodMod.html">POD Mod </a>
+                <a href="TankMod.html">Tank Mod</a>
+                <a href="allproducts.html">All Products</a>
+              </div>
+            </div>
+            <a href="ABOUT US.html" class="hover:text-secondary  ">About Us</a>
+            <a href="Why choose us.html" class="hover:text-secondary">Why choose Us</a>
+             <a href="ContactUs.html" class="hover:text-secondary">Contact</a>
+              
+             
+                      <!-- Search Bar -->
+             <div class="hidden md:block relative">
+  <input id="search-bar" type="text" placeholder="Search products..."
+         class="bg-accent text-primary rounded-full px-4 py-2 focus:outline-none w-64">
+  <div id="search-results" class="absolute w-full bg-white text-primary rounded shadow mt-1 hidden"></div>
+</div>
+      <!--Cart icon-->       
+             <div class="relative ml-4">
+                <button id="cart-toggle" class="text-white hover:primary transition">
+                  <i class="fas fa-shopping-cart text-xl text-white"></i>
+                  <span id="cart-count" class="cart-count hidden text-secondary opacity-100">0</span>
+                
+  </button>
+              </div>
+</div>
+    </div>
+  
+
+</nav>
+    
+
+  <!-- All Products Section -->
+  <main class="pt-24 px-6 md:px-16 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-serif font-bold text-secondary mb-6 text-center">Our Full Product Range</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Product Card -->
+      <a href="product-luxe-pro.html" class="block bg-accent text-primary rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2">
+        <img src="Luxe Q2.png" alt="LUXE PRO" class="w-full h-64 object-contain p-4">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-secondary">LUXE PRO</h3>
+          <p class="text-sm text-black mb-2">Deluxe leather design with 1000mAh battery, 2A fast charging, and adjustable airflow.</p>
+          <span class="text-lg font-bold text-black">$89.99</span>
+ <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition"
+        data-id="1"
+        data-name="LUXE PRO"
+        data-price="89.99">
+  ADD TO CART
+</button>
+   
+        </div>
+        
+      </a>
+
+      <!-- Product Card -->
+      <a href="product-luxe-x2.html" class="block bg-accent text-primary rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2">
+        <img src="Luxe X2.png" alt="Luxe X2" class="w-full h-64 object-contain p-4">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-secondary">LUXE X2</h3>
+          <p class="text-sm text-black mb-2">2000mAh battery with COREX 2.0 for extended life, flavor enhancement, and pod compatibility.</p>
+          <span class="text-lg font-bold text-black">$149.99</span>
+          <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition"
+        data-id="2"
+        data-name="LUXE X2"
+        data-price="149.99">
+  ADD TO CART
+</button>
+        </div>
+      </a>
+
+      <!-- Product Card -->
+      <a href="product-vaporesso.html" class="block bg-accent text-primary rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2">
+        <img src="Vaporesso.png" alt="Vaporesso" class="w-full h-64 object-contain p-4">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-secondary">Vaporesso</h3>
+          <p class="text-sm text-black mb-2">A revolutionary design crafted for intuitive usability and unmatched reliability.</p>
+          <span class="text-lg font-bold text-black">$24.99</span>
+          <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition"
+        data-id="1"
+        data-name="LUXE PRO"
+        data-price="89.99">
+  ADD TO CART
+</button>
+        </div>
+      </a>
+
+   <!-- Product Card -->
+      <a href="TankmodTitan.html" class="block bg-accent text-primary rounded-lg overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2">
+        <img src="mod3.png" alt="Vaporesso" class="w-full h-64 object-contain p-4">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-secondary">Tank Mod Titan</h3>
+          <p class="text-sm text-black mb-2">A statement of luxury and power. Experience premium vaping with 300W output, customizable LED lighting, precision temperature control, dual 18650 batteries, and a sleek, high-end design crafted for elite performance.</p>
+          <span class="text-lg font-bold text-black">$159.99</span>
+          <button class="add-to-cart bg-secondary text-primary px-4 py-2 rounded hover:bg-yellow-500 transition"
+        data-id="1"
+        data-name="LUXE PRO"
+        data-price="159.99">
+  ADD TO CART
+</button>
+        </div>
+      </a>
+
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+  </main>
+
+
+  <br>
+
+   <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4 text-secondary"Safi VAPE</h3>
+                    <p class="opacity-90 mb-4">Elevating your vaping experience with premium products and exceptional service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SHOP</h4>
+                    <ul class="space-y-2">
+                          <li><a href="allproducts.html" class="opacity-90 hover:text-secondary transition">All Products</a></li>
+                        <li><a href="NewArrivals.html" class="opacity-90 hover:text-secondary transition"> New arrivals</a></li>
+                        <li><a href="PodMod.html" class="opacity-90 hover:text-secondary transition">Pod Mod</a></li>
+                        <li><a href="TankMod.html" class="opacity-90 hover:text-secondary transition"> Tank Mod</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">SUPPORT</h4>
+                    <ul class="space-y-2">
+                        <li><a href="FAQ.html" class="opacity-90 hover:text-secondary transition">FAQs</a></li>
+                        <li><a href="ShippingPolicy.html" class="opacity-90 hover:text-secondary transition">Shipping Policy</a></li>
+                        <li><a href="returns&warranty.html" class="opacity-90 hover:text-secondary transition">Returns & Warranty</a></li>
+                        <li><a href="ContactUs.html" class="opacity-90 hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4" style="color:#C6A664 ;">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="TermsOfService.html" class="opacity-90 hover:text-secondary transition">Terms of Service</a></li>
+                        <li><a href="Policy.html" class="opacity-90 hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="CookiePolicy.html" class="opacity-90 hover:text-secondary transition">Cookie Policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary/20 mt-12 pt-8 text-center opacity-70">
+                <p>© 2023 Safi  Vape. All rights reserved. Must be 18+ to purchase.</p>
+            </div>
+        </div>
+    </footer>
+  
+    
+<div id="cart-panel" class="cart-panel fixed top-0 right-0 w-full md:w-96 h-full bg-accent overflow-y-auto z-50 p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold text-secondary">Your Cart</h3>
+        <button id="cart-close" class="text-white hover:text-secondary">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div id="cart-items" class="space-y-4">
+        <p class="text-gray-400">Your cart is empty</p>
+    </div>
+    <div class="mt-8 border-t border-secondary/20 pt-4">
+        <div class="flex justify-between mb-2">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal" class="font-bold">$0.00</span>
+        </div>
+        <button onclick="window.location.href='CheckOut.html';" class="w-full bg-secondary text-primary py-3 font-bold hover:bg-yellow-500 transition mt-4">
+    Checkout
+</button>
+    </div>
+</div>
+
+
+
+<!--Search functionality-->
+<script>
+  const products = [
+    { name: "LUXE PRO", url: "LuxePro.html" },
+    { name: "Luxe X2", url: "LuxeX2.html" },
+    { name: "Vaporesso", url: "Vaporesso.html" },
+    // Add more as needed
+  ];
+
+  const searchInput = document.getElementById("search-bar");
+  const resultsBox = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    resultsBox.innerHTML = "";
+    if (!query) {
+      resultsBox.classList.add("hidden");
+      return;
+    }
+
+    const matched = products.filter(p => p.name.toLowerCase().includes(query));
+    if (matched.length === 0) {
+      resultsBox.innerHTML = '<div class="p-2 text-sm">No results found</div>';
+    } else {
+      matched.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        item.textContent = p.name;
+        item.onclick = () => {
+          window.location.href = p.url;
+        };
+        resultsBox.appendChild(item);
+      });
+    }
+    resultsBox.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+      resultsBox.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+
+<script src="cart.js"></script>
+
+
+
+<!--Search functionality-->
+<script>
+  const products = [
+    { name: "LUXE PRO", url: "LuxePro.html" },
+    { name: "Luxe X2", url: "LuxeX2.html" },
+    { name: "Vaporesso", url: "Vaporesso.html" },
+    { name: "Tank Mod Titan", url: "TankModTitan.html" },
+    // Add more as needed
+  ];
+
+  const searchInput = document.getElementById("search-bar");
+  const resultsBox = document.getElementById("search-results");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    resultsBox.innerHTML = "";
+    if (!query) {
+      resultsBox.classList.add("hidden");
+      return;
+    }
+
+    const matched = products.filter(p => p.name.toLowerCase().includes(query));
+    if (matched.length === 0) {
+      resultsBox.innerHTML = '<div class="p-2 text-sm">No results found</div>';
+    } else {
+      matched.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        item.textContent = p.name;
+        item.onclick = () => {
+          window.location.href = p.url;
+        };
+        resultsBox.appendChild(item);
+      });
+    }
+    resultsBox.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+      resultsBox.classList.add("hidden");
+    }
+  });
+</script>
+
+
+</body>
+</html>
